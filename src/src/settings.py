@@ -78,12 +78,46 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+
+
+
+
+
+# multiple database setup
 DATABASES = {
-    'default': {
+    'default': {},
+    'store_db': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'NAME': BASE_DIR / 'store.db.sqlite3',
+    },
+    'users_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'users.db.sqlite3',
+    },
+        'orm_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'orm.db.sqlite3',
+    },
 }
+
+#important command
+# python manage.py migrate appname --database=dbname
+
+DATABASE_ROUTERS = ['routers.db_routers.AuthRouter','routers.db_routers.Store', 'routers.db_routers.Orm']
+# multiple database setup
+
+
+
+
+
 
 
 # Password validation
@@ -152,3 +186,7 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
     'debug_toolbar.panels.profiling.ProfilingPanel',
 ]
+
+
+
+

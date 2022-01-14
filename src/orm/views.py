@@ -11,7 +11,7 @@ def index(request):
 
     student = Student.objects.all()
     print('student--------------', student)
-    print('student query--------------', student.query)
+    # print('student query--------------', student.query)
     print('connection query--------------', connection.queries)
     #data base can understant sql, not python.
     # so python to sql, sql to databasedata. so data will comde by sql language 
