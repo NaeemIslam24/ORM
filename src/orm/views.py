@@ -9,7 +9,8 @@ from django.db.models import Q
 
 def index(request):
 
-    student = Student.objects.all()
+    # student = Student.objects.all()
+    student = Student.objects.using('orm_db').all() # data from orm_db
     print('student--------------', student)
     # print('student query--------------', student.query)
     print('connection query--------------', connection.queries)
